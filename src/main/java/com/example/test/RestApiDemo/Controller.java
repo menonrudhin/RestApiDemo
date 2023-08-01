@@ -2,25 +2,24 @@ package com.example.test.RestApiDemo;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 public class Controller {
 
     private StringBuilder response = new StringBuilder();
 
-    @Autowired
-    private BookRepository bookRepository;
-
-    @RequestMapping("/create")
+    @PostMapping(path = "/create")
     public Book post(@RequestBody Book book){
         return bookRepository.save(book);
     }
 
-    @RequestMapping("/get/{id}")
+    @Autowired
+    private BookRepository bookRepository;
+
+    @GetMapping("/get/{id}")
     public String get(@PathVariable("id") int id){
         try {
             Book book = bookRepository.getReferenceById(id);
@@ -33,9 +32,12 @@ public class Controller {
         return response.toString();
     }
 
-    @RequestMapping("/update")
+    @PutMapping(path = "/update")
     public Book put(@RequestBody Book book){
+        Optional<Book> bookOpt = bookRepository.findById(book.getId());
+        bookOpt.orElseThrow();
         Book updatedBook = bookRepository.save(book);
+
         return updatedBook;
     }
 
