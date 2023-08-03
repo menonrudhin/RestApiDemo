@@ -17,17 +17,6 @@ public class Book {
     @Column
     private int published;
 
-    public Book(){
-
-    }
-
-    public Book(int id, String name, String author, int published) {
-        this.id = id;
-        this.name = name;
-        this.author = author;
-        this.published = published;
-    }
-
     public int getId() {
         return id;
     }
