@@ -1,0 +1,1 @@
+insert into BOOK (id, name, author, published) values (1,'Harry Potter','J.K.Rowling',19930404);

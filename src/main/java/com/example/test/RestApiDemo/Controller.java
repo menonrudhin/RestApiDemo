@@ -13,7 +13,8 @@ public class Controller {
 
     @PostMapping(path = "/create")
     public Book post(@RequestBody Book book){
-        return bookRepository.save(book);
+        Book createdBook = bookRepository.save(book);
+        return createdBook;
     }
 
     @Autowired
