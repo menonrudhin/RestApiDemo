@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ .Values.app.name }}-configmap"
+data:
+  "application-{{ .Values.env.reg }}.yml": |-
+    {{ .Files.Get (printf "%s.yml" .Values.app.configpath) | nindent 4 }}
