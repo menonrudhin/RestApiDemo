@@ -49,14 +49,3 @@ Selector labels
 app.kubernetes.io/name: {{ include "rest-api-demo.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
-
-{{/*
-Create the name of the service account to use
-*/}}
-{{- define "rest-api-demo.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "rest-api-demo.fullname" .) .Values.serviceAccount.name }}
-{{- else }}
-{{- default "default" .Values.serviceAccount.name }}
-{{- end }}
-{{- end }}
