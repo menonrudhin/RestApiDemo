@@ -6,9 +6,8 @@ replicaCount: 1
 
 image:
   repository: 324093103365.dkr.ecr.ca-central-1.amazonaws.com/rest-api-demo
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: 0.1.7
+  pullPolicy: Always
 
 app:
   name: rest-api-demo

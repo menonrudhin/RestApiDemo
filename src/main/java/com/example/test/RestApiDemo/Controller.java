@@ -47,4 +47,9 @@ public class Controller {
         bookRepository.deleteById(id);
     }
 
+    @GetMapping
+    public String getVer() {
+        return "v0.1.7";
+    }
+
 }
