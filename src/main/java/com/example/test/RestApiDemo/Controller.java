@@ -13,7 +13,7 @@ public class Controller {
     private BookRepository bookRepository;
 
     @RequestMapping("/create")
-    public Book put(@RequestBody Book book){
+    public Book post(@RequestBody Book book){
         return bookRepository.save(book);
     }
 
@@ -21,6 +21,12 @@ public class Controller {
     public String get(@PathVariable("id") int id){
         Book book = (Book) bookRepository.getReferenceById(id);
         return book.toString();
+    }
+
+    @RequestMapping("/update")
+    public Book put(@RequestBody Book book){
+        Book updatedBook = bookRepository.save(book);
+        return updatedBook;
     }
 
 }
