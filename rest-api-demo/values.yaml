@@ -12,6 +12,8 @@ image:
 app:
   name: rest-api-demo
 
+springProfile: dev
+
 env:
   reg: dev
   JAVA_OPTS: "-Xms256m -Xmx512m"
