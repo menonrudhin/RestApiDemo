@@ -13,3 +13,10 @@ spring:
     console:
       enabled: true
       path: /h2-ui
+
+app:
+  timezone: '{
+  "NA": "America/New_York",
+  "IN": "Asia/Kolkata",
+  "JP": "Asia/Tokyo"
+  }'

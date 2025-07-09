@@ -1,15 +1,28 @@
 package com.example.test.RestApiDemo;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
 public class Controller {
 
+    @Value("#{${app.timezone}}")
+    private Map<String, String> timezone;
+
     private StringBuilder response = new StringBuilder();
+
+    @PostConstruct
+    public void postConstruct() {
+        timezone.entrySet().forEach(e -> {
+            System.out.println(e.getKey() + " : " + e.getValue());
+        });
+    }
 
     @PostMapping(path = "/create")
     public Book post(@RequestBody Book book){
