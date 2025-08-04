@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: 324093103365.dkr.ecr.ca-central-1.amazonaws.com/rest-api-demo
+  repository: rudhin28/rest-api-demo
   tag: latest
   pullPolicy: IfNotPresent
 
