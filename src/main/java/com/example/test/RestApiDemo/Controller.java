@@ -2,6 +2,7 @@ package com.example.test.RestApiDemo;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,7 @@ public class Controller {
     @Autowired
     private BookRepository bookRepository;
 
+    @Transactional
     @GetMapping("/get/{id}")
     public String get(@PathVariable("id") int id){
         try {
